@@ -45,6 +45,7 @@ char		*get_octal(va_list *arg, char *buffer, int *tab);
 char		*get_int_ns(va_list *arg, char *buffer, int *tab);
 char		*get_hexa_low(va_list *arg, char *buffer, int *tab);
 char		*get_hexa_up(va_list *arg, char *buffer, int *tab);
+char		*get_double(va_list *arg, char *buffer, int *tab);
 char		*get_char(va_list *arg, char *buffer, int *tab);
 char		*get_str(va_list *arg, char *buffer, int *tab);
 

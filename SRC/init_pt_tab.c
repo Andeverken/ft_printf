@@ -6,7 +6,7 @@
 /*   By: rfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/02 16:08:04 by rfernand          #+#    #+#             */
-/*   Updated: 2016/04/04 16:48:01 by rfernand         ###   ########.fr       */
+/*   Updated: 2016/04/05 17:03:20 by rfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	init_pt_tab(char *(**types)(va_list *arg, char *buffer, int *tab))
 	types[3] = &get_int_ns;
 	types[4] = &get_hexa_low;
 	types[5] = &get_hexa_up;
+	types[6] = &get_double;
 	types[11] = &get_char;
 	types[12] = &get_str;
 }
