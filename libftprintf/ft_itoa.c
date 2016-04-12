@@ -6,13 +6,13 @@
 /*   By: rfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/26 13:58:14 by rfernand          #+#    #+#             */
-/*   Updated: 2016/04/02 16:06:00 by rfernand         ###   ########.fr       */
+/*   Updated: 2016/04/12 18:49:23 by rfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-static int	ft_lennb(int n)
+static int	ft_lennb(long n)
 {
 	int u;
 
@@ -27,7 +27,7 @@ static int	ft_lennb(int n)
 	return (u + 1);
 }
 
-static char	*negatifvalue(int n)
+static char	*negatifvalue(long n)
 {
 	char	*str;
 	int		u;
@@ -48,10 +48,10 @@ static char	*negatifvalue(int n)
 	return (str);
 }
 
-char		*ft_itoa(int n)
+char		*ft_itoa(long n)
 {
 	char	*str;
-	int		i;
+	long		i;
 	int		u;
 	int		h;
 

@@ -6,13 +6,13 @@
 /*   By: rfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/25 16:55:42 by rfernand          #+#    #+#             */
-/*   Updated: 2016/04/04 16:02:25 by rfernand         ###   ########.fr       */
+/*   Updated: 2016/04/12 17:43:09 by rfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libftprintf/libftprintf.h"
 
-char		*print_arg(int **tab, va_list *arg, char *str, const char * format)
+char		*print_arg(int **tab, va_list *arg, char *str, const char *format)
 {
 	char *buffer;
 	char *buf;
@@ -20,6 +20,7 @@ char		*print_arg(int **tab, va_list *arg, char *str, const char * format)
 	char	*(*types[14])(va_list *arg, char *buffer, int *tab);
 
 	n = ft_strlen(str);
+	buffer = NULL;
 	buf = (char *)malloc((n + 1) * sizeof(char));
 	ft_strcpy(buf, str);
 	if (!tab[4][0])

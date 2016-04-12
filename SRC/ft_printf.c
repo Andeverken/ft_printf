@@ -6,7 +6,7 @@
 /*   By: rfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/22 15:39:40 by rfernand          #+#    #+#             */
-/*   Updated: 2016/04/05 17:07:33 by rfernand         ###   ########.fr       */
+/*   Updated: 2016/04/12 19:08:37 by rfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 char	*recup_arg(va_list *arg, char *str, const char *format, int *i)
 {
-	int y;
+/*	int y;
 
 	y = 0;
 	while (format[(*i) - y - 1] == '\\')
 		y++;
 	if (y % 2)
 		str[(*i)] = '\0';
-	if ((str = print_arg(check_format(format, i), arg, str, format)) == NULL)
+*/	if ((str = print_arg(check_format(format, i), arg, str, format)) == NULL)
 		return (NULL);
 	return (str);
 }
@@ -30,7 +30,6 @@ int		ft_printf(const char * format, ...)
 {
 	int i;
 	int n;
-	int y;
 	char *str;
 	va_list arg;
 
@@ -58,10 +57,10 @@ int		ft_printf(const char * format, ...)
 
 int		main(void)
 {
-	float i;
+	double i;
 
-	i = 123.1234567;
-	printf("string = %f\n", i);
-	ft_printf("string = %f\n", i);
+	i = 12345678901234.1234567;
+	ft_printf("\\%f\n", i);
+	printf("%f\n", i);
 	return (0);
 }

@@ -19,7 +19,7 @@ void		ft_putchar(char c);
 void		ft_putnbr(int i);
 void		ft_putstr(char const *str);
 int			ft_atoi(const char *str);
-char		*ft_itoa(int n);
+char		*ft_itoa(long n);
 int			ft_strlen(const char *str);
 void		ft_bzero(void *s, size_t n);
 char		*ft_strcpy(char *dst, const char *src);
@@ -28,6 +28,7 @@ int			ft_power(int i, int power);
 char		*ft_utoa(unsigned int n);
 char		*ft_convertbase(int i, int base);
 int			ft_toupper(int c);
+char		*ft_dtoa(long double i, int size);
 
 char		*print_arg(int **tab, va_list *arg, char *str, const char *format);
 int			**check_format(const char *format, int *i);
