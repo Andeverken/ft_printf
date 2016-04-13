@@ -6,7 +6,7 @@
 /*   By: rfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/24 16:32:30 by rfernand          #+#    #+#             */
-/*   Updated: 2016/04/04 15:52:38 by rfernand         ###   ########.fr       */
+/*   Updated: 2016/04/13 16:46:16 by rfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,7 @@ int		**check_format(const char *format, int *i)
 	check_flags(tab[0], format, i);
 	check_len(tab[1], format, i);
 	check_accuracy(tab[2], format, i);
-	if (check_modif(tab[3], format[*i]))
-		*i = *i + 1;
+	check_modif(tab[3], format, i);
 	if (check_type(tab, format[*i]))
 		*i = *i + 1;
 	return (tab);

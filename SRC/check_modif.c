@@ -6,19 +6,34 @@
 /*   By: rfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/25 15:55:18 by rfernand          #+#    #+#             */
-/*   Updated: 2016/03/25 15:57:49 by rfernand         ###   ########.fr       */
+/*   Updated: 2016/04/13 16:55:10 by rfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		check_modif(int *tab, char c)
+void	check_modif(int *tab, const char *format, int *i)
 {
-	if (c == 'h')
-		tab[0] = 'h';
-	else if (c == 'l')
-		tab[0] = 'l';
-	else if (c == 'L')
-		tab[0] = 'L';
-	else
-		return (0);
-	return (1);
+	if (format[(*i)] == 'h')
+	{
+		if (format[(*i) + 1] == 'h')
+			tab[0] = 1;
+		else
+			tab[0] = 2;
+	}
+	else if (format[(*i)] == 'l')
+	{
+		if (format[(*i) + 1] == 'l')
+			tab[0] = 4;
+		else
+			tab[0] = 3;
+	}
+	else if (format[(*i)] == 'j')
+		tab[0] = 5;
+	else if (format[(*i)] == 'z')
+		tab[0] = 6;
+	else if (format[(*i)] == 'L')
+		tab[0] = 7;
+	if (tab[0])
+		(*i)++;
+	if (tab[0] == 1 || tab[0] == 4)
+		(*i)++;
 }

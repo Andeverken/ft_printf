@@ -6,7 +6,7 @@
 /*   By: rfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/24 18:32:59 by rfernand          #+#    #+#             */
-/*   Updated: 2016/04/01 19:24:12 by rfernand         ###   ########.fr       */
+/*   Updated: 2016/04/13 16:01:15 by rfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ void	check_type_2(int **tab, char c)
 		tab[4][0] = 9;
 	if (c == 'G')
 		tab[4][0] = 10;
-	if (c == 'c')
+	if (c == 'c' || c == 'C')
 		tab[4][0] = 11;
-	if (c == 's')
+	if (c == 's' || c == 'S')
 		tab[4][0] = 12;
 	if (c == 'p')
 		tab[4][0] = 13;
@@ -28,11 +28,11 @@ void	check_type_2(int **tab, char c)
 
 int		check_type(int **tab, char c)
 {
-	if (c == 'd' || c == 'i')
+	if (c == 'd' || c == 'i' || c == 'D' || c == 'I')
 		tab[4][0] = 1;
-	if (c == 'o')
+	if (c == 'o' || c == 'O')
 		tab[4][0] = 2;
-	if (c == 'u')
+	if (c == 'u' || c == 'U')
 		tab[4][0] = 3;
 	if (c == 'x')
 		tab[4][0] = 4;

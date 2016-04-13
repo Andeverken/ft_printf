@@ -29,6 +29,9 @@ char		*ft_utoa(unsigned int n);
 char		*ft_convertbase(int i, int base);
 int			ft_toupper(int c);
 char		*ft_dtoa(long double i, int size);
+char		*ft_round(char *str, int size);
+int			size_forscient(double *i);
+char		*arg_forscient(char *buffer, int n);
 
 char		*print_arg(int **tab, va_list *arg, char *str, const char *format);
 int			**check_format(const char *format, int *i);
@@ -36,7 +39,7 @@ int			**check_format(const char *format, int *i);
 void		check_flags(int *tab, const char *format, int *i);
 void		check_len(int *tab, const char *format, int *i);
 void		check_accuracy(int *tab, const char *format, int *i);
-int			check_modif(int *tab, char c);
+void		check_modif(int *tab, const char *format, int *i);
 int			check_type(int **tab, char c);
 
 void		init_pt_tab(char *(**types)(va_list *arg, char *buffer, int *tab));
@@ -49,5 +52,6 @@ char		*get_hexa_up(va_list *arg, char *buffer, int *tab);
 char		*get_double(va_list *arg, char *buffer, int *tab);
 char		*get_char(va_list *arg, char *buffer, int *tab);
 char		*get_str(va_list *arg, char *buffer, int *tab);
+char		*get_scient(va_list *arg, char *buffer, int *tab);
 
 #endif

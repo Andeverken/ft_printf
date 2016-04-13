@@ -6,7 +6,7 @@
 /*   By: rfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/02 15:33:59 by rfernand          #+#    #+#             */
-/*   Updated: 2016/04/04 16:43:22 by rfernand         ###   ########.fr       */
+/*   Updated: 2016/04/13 16:02:23 by rfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,19 @@ char	*ft_convertbase(int i, int base)
 {
 	int n;
 	int u;
+	int y;
 	char *str;
 
 	n = 0;
 	u = 0;
-	while ((i / ft_power(base, n)) >= 1)
+	y = i;
+	while (y >= 1)
+	{
+		y /= base;
 		n++;
-	str = (char *) malloc(n * sizeof(char));
+	}
+	str = (char *) malloc((n + 1) * sizeof(char));
+	ft_bzero(str, n + 1);
 	while (n--)
 	{
 		str[u++] = check_value(i / ft_power(base, n));

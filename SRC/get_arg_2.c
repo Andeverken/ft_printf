@@ -6,13 +6,11 @@
 /*   By: rfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/04 16:35:36 by rfernand          #+#    #+#             */
-/*   Updated: 2016/04/12 19:31:49 by rfernand         ###   ########.fr       */
+/*   Updated: 2016/04/13 19:04:15 by rfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libftprintf/libftprintf.h"
-#include <stdio.h>
-
 
 char	*get_hexa_low(va_list *arg, char *buffer, int *tab)
 {
@@ -41,22 +39,20 @@ char	*get_hexa_up(va_list *arg, char *buffer, int *tab)
 char	*get_double(va_list *arg, char *buffer, int *tab)
 {
 	double i;
-	double n;
 
-	n = 0.00001;
 	i = va_arg((*arg), double);
 	buffer = ft_dtoa(i, 6);
-	printf("%s\n", buffer);
-	printf("%.10f\n", i);
-	if (buffer[ft_strlen(buffer) - 1] >= '5')
-	{
-		printf("Salut\n");
-//		i = i + (1 / ft_power(10, 6));
-		i += 0.01;
-	}
-	printf("%.10f\n", i);
-	free(buffer);
-	buffer = ft_dtoa(i, 5);
-	printf("%s\n", buffer);
+	buffer = ft_round(buffer, ft_strlen(buffer) - 1);
+	return (buffer);
+}
+
+char	*get_scient(va_list *arg, char *buffer, int *tab)
+{
+	double i;
+	int		n;
+
+	i = va_arg((*arg), double);
+	n = size_forscient(&i);
+	buffer = arg_forscient(ft_dtoa(i, 6), n);
 	return (buffer);
 }
