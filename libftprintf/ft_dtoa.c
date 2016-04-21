@@ -6,7 +6,7 @@
 /*   By: rfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/07 15:42:00 by rfernand          #+#    #+#             */
-/*   Updated: 2016/04/12 19:05:50 by rfernand         ###   ########.fr       */
+/*   Updated: 2016/04/16 15:22:14 by rfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,11 @@ char	*ft_dtoa(long double i, int size)
 	ft_strcpy(str, buffer);
 	free(buffer);
 	u = ft_strlen(str);
-	str[u++] = '.';
+	if (size > 0)
+		str[u++] = '.';
 	i = i - (long double) n;
+	if (i < 0)
+		i = -i;
 	while (size-- + 1)
 	{
 		i = 10 * i;

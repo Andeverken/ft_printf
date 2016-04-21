@@ -6,7 +6,7 @@
 /*   By: rfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/24 16:32:30 by rfernand          #+#    #+#             */
-/*   Updated: 2016/04/13 16:46:16 by rfernand         ###   ########.fr       */
+/*   Updated: 2016/04/21 16:22:43 by rfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,25 +26,44 @@ int		*alloc_tab(int n)
 
 void	init_tab(int **tab)
 {
-	tab[0] = alloc_tab(5);
-	tab[1] = alloc_tab(3);
-	tab[2] = alloc_tab(4);
+	tab[0] = alloc_tab(4);
+	tab[1] = alloc_tab(1);
+	tab[2] = alloc_tab(1);
 	tab[3] = alloc_tab(1);
 	tab[4] = alloc_tab(1);
 }
 
-int		**check_format(const char *format, int *i)
+int		check(char c)
+{
+	if ((c >= '0' && c <= '9') || c == '+' || c == '-'|| c == ' ' || c == '#' ||
+			c == '.' || c == '*' || c == 'l' || c == 'z' || c == 'L' ||
+			(c >= 'b' && c <= 'j') || c == 's' || c == 'o' || c == 'u' ||
+			c == 'S' || c == 'O' || c == 'U' || (c >= 'B' && c <= 'G') ||
+			c == 'p' || c == '%' || c == 'I' || c == 'x' || c == 'X')
+		return (1);
+	return (0);
+}
+
+int		**check_format(va_list *arg, const char *format, int *i)
 {
 	int **tab;
+	int n;
 
 	*i = *i + 1;
+	n = 0;
 	tab = (int **) malloc(5 * sizeof(int *));
 	init_tab(tab);
-	check_flags(tab[0], format, i);
-	check_len(tab[1], format, i);
-	check_accuracy(tab[2], format, i);
-	check_modif(tab[3], format, i);
-	if (check_type(tab, format[*i]))
-		*i = *i + 1;
+	while (!tab[4][0] && format[*i] && check(format[*i]))
+	{
+		check_flags(tab[0], format, i);
+		check_len(arg, tab[1], format, i);
+		if (!n || format[*i] == '.')
+			n = check_accuracy(arg, tab[2], format, i);
+		check_modif(tab[3], format, i);
+		if (check_type(tab, format[*i]))
+			*i = *i + 1;
+	}
+	if (tab[0][0] != '0' || (tab[2][0] < tab[1][0] && tab[2][0] != -1))
+		tab[0][3] = ' ';
 	return (tab);
 }

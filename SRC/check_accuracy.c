@@ -6,13 +6,13 @@
 /*   By: rfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/24 19:31:16 by rfernand          #+#    #+#             */
-/*   Updated: 2016/04/01 19:23:28 by rfernand         ###   ########.fr       */
+/*   Updated: 2016/04/20 18:08:32 by rfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libftprintf/libftprintf.h"
 
-void		check_accuracy(int *tab, const char *format, int *i)
+int		check_accuracy(va_list *arg, int *tab, const char *format, int *i)
 {
 	char str[50];
 	int n;
@@ -21,22 +21,22 @@ void		check_accuracy(int *tab, const char *format, int *i)
 	if (format[*i] == '.')
 	{
 		(*i)++;
-		if (format[*i] < '1' || format[*i] > '9')
+		if (format[*i] < '0' || format[*i] > '9')
+			tab[0] = 0;
+		else if (format[*i] == '*')
 		{
-			tab[1] = 1;
-			if (format[*i] == '0')
-				(*i)++;
+			tab[0] = va_arg((*arg), int);
+			(*i)++;
 		}
-		else
+		else if (format[*i] >= '0' && format[*i] <= '9')
 		{
-			while (format[*i] >= '1' && format[*i] <= '9')
+			while (format[*i] >= '0' && format[*i] <= '9')
 				str[n++] = format[(*i)++];
 			str[n] = 'e';
-			tab[2] = ft_atoi(str);
+			tab[0] = ft_atoi(str);
 		}
+		return (1);
 	}
-	else if (format[*i] == '*')
-		tab[3] = 1;
-	else
-		tab[0] = 1;
+	tab[0] = -1;
+	return (0);
 }
