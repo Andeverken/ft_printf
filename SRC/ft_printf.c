@@ -6,7 +6,7 @@
 /*   By: rfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/22 15:39:40 by rfernand          #+#    #+#             */
-/*   Updated: 2016/04/21 17:02:30 by rfernand         ###   ########.fr       */
+/*   Updated: 2016/04/22 18:35:37 by rfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,9 +75,14 @@ int		ft_printf(const char * format, ...)
 int		main(void)
 {
 	double i;
+	char c;
+	int n;
 
+	c = 130;
 	i = 1000000.7776678;
-	ft_printf("%10R", 0);
-	printf("%10R", 0);
+	n = ft_printf("% s", "test");
+	printf("%d\n", n);
+	n = printf("% s", "test");
+	printf("%d\n", n);
 	return (0);
 }

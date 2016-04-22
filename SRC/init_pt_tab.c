@@ -6,7 +6,7 @@
 /*   By: rfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/02 16:08:04 by rfernand          #+#    #+#             */
-/*   Updated: 2016/04/20 19:15:52 by rfernand         ###   ########.fr       */
+/*   Updated: 2016/04/22 18:26:58 by rfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	init_pt_tab(char *(**types)(va_list *arg, char *buffer, int **tab))
 {
+	types[0] = &get_nothing;
 	types[1] = &get_int;
 	types[2] = &get_octal;
 	types[3] = &get_int_ns;
@@ -29,6 +30,7 @@ void	init_pt_tab(char *(**types)(va_list *arg, char *buffer, int **tab))
 	types[13] = &get_point;
 	types[14] = &get_binary;
 	types[15] = &get_percent;
+	types[16] = &get_long_str;
 }
 
 void	init_signed_tab(char *(**modif_signed)

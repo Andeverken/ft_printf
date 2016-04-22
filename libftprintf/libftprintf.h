@@ -6,7 +6,7 @@
 /*   By: rfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/20 18:26:16 by rfernand          #+#    #+#             */
-/*   Updated: 2016/04/20 19:36:03 by rfernand         ###   ########.fr       */
+/*   Updated: 2016/04/22 18:26:56 by rfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ void		init_unsigned_tab(char *(**modif_unsigned)
 void		init_diez_tab(char *(**diez)(char *tmp, char *buffer, int **tab));
 int			ft_printf(const char *format, ...);
 
+char		*get_nothing(va_list *arg, char *buffer, int **tab);
 char		*get_int(va_list *arg, char *buffer, int **tab);
 char		*get_octal(va_list *arg, char *buffer, int **tab);
 char		*get_int_ns(va_list *arg, char *buffer, int **tab);
@@ -77,6 +78,7 @@ char		*get_shorter(va_list *arg, char *buffer, int **tab);
 char		*get_shorter_up(va_list *arg, char *buffer, int **tab);
 char		*get_binary(va_list *arg, char *buffer, int **tab);
 char		*get_percent(va_list *arg, char *buffer, int **tab);
+char		*get_long_str(va_list *arg, char *buffer, int **tab);
 
 char		*get_short_short_int(va_list *arg, char *buffer, int **tab);
 char		*get_short_int(va_list *arg, char *buffer, int **tab);

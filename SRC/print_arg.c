@@ -6,7 +6,7 @@
 /*   By: rfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/25 16:55:42 by rfernand          #+#    #+#             */
-/*   Updated: 2016/04/21 15:46:16 by rfernand         ###   ########.fr       */
+/*   Updated: 2016/04/22 18:25:45 by rfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,8 @@ char		*print_arg(int **tab, va_list *arg, char *str, const char *format)
 	char *buffer;
 	char *buf;
 	int n;
-	char	*(*types[16])(va_list *arg, char *buffer, int **tab);
+	char	*(*types[17])(va_list *arg, char *buffer, int **tab);
 
-	if (!tab[4][0])
-		return (str);
 	n = ft_strlen(str);
 	buffer = NULL;
 	buf = (char *)malloc((n + 1) * sizeof(char));
@@ -93,9 +91,8 @@ char		*ft_apply_flag(int **tab, char *buffer)
 	if (tab[1] && ((tab[4][0] >= 6 && tab[4][0] <= 10) || tab[4][0] == 1)
 		&& buffer[0] != '-')
 		tmp[0] = tab[0][1];
-	if (tab[0][2] == '#')
-		if ((tab[4][0] >= 4 && tab[4][0] <= 10) || tab[4][0] == 2 || 
-				tab[4][0] == 14)
+	if (tab[0][2] == '#' && ((tab[4][0] >= 4 && tab[4][0] <= 10) ||
+				tab[4][0] == 2 || tab[4][0] == 14))
 			buffer = diez[tab[4][0]](tmp, buffer, tab);
 	ft_strcat(tmp, buffer);
 	free(buffer);

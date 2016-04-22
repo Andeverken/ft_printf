@@ -6,7 +6,7 @@
 /*   By: rfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/24 16:32:30 by rfernand          #+#    #+#             */
-/*   Updated: 2016/04/21 16:22:43 by rfernand         ###   ########.fr       */
+/*   Updated: 2016/04/22 17:44:24 by rfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	init_tab(int **tab)
 	tab[1] = alloc_tab(1);
 	tab[2] = alloc_tab(1);
 	tab[3] = alloc_tab(1);
-	tab[4] = alloc_tab(1);
+	tab[4] = alloc_tab(2);
 }
 
 int		check(char c)
@@ -65,5 +65,7 @@ int		**check_format(va_list *arg, const char *format, int *i)
 	}
 	if (tab[0][0] != '0' || (tab[2][0] < tab[1][0] && tab[2][0] != -1))
 		tab[0][3] = ' ';
+	if (!tab[4][0] && format[*i])
+		tab[4][1] = format[(*i)++];
 	return (tab);
 }

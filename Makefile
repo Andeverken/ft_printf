@@ -6,7 +6,7 @@
 #    By: rfernand <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/04/16 15:52:11 by rfernand          #+#    #+#              #
-#    Updated: 2016/04/21 15:11:14 by rfernand         ###   ########.fr        #
+#    Updated: 2016/04/22 17:24:45 by rfernand         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,8 @@ SRC_NAME = apply_diez.c \
 		   get_unsigned.c \
 		   get_int_2.c \
 		   init_pt_tab.c \
-		   print_arg.c
+		   print_arg.c \
+		   get_nothing.c \
 
 LIBFT_NAME = ft_atoi.c \
 			 ft_bzero.c \
