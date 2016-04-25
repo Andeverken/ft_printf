@@ -6,7 +6,7 @@
 /*   By: rfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/25 16:55:42 by rfernand          #+#    #+#             */
-/*   Updated: 2016/04/22 18:25:45 by rfernand         ###   ########.fr       */
+/*   Updated: 2016/04/25 17:08:14 by rfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,8 @@ char		*ft_add_empty(char *tmp, int **tab, char *buffer)
 	else
 	{
 		ft_bzero(tmp2, tab[1][0] + 1);
-		while ((tmp[0] == '-' || tmp[0] == '+' || tmp[0] == '0' || 
-					tmp[0] == 'x' || tmp[0] == 'X') && tab[0][3] == '0')
+		while ((tmp[0] == '-' || tmp[0] == '+' || tmp[0] == '0' || tmp[0] == ' '
+					|| tmp[0] == 'x' || tmp[0] == 'X') && tab[0][3] == '0')
 		{
 			tmp2[i++] = tmp[0];
 			ft_memmove(tmp, tmp + 1, ft_strlen(tmp));

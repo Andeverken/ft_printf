@@ -6,7 +6,7 @@
 /*   By: rfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/20 18:26:16 by rfernand          #+#    #+#             */
-/*   Updated: 2016/04/22 18:26:56 by rfernand         ###   ########.fr       */
+/*   Updated: 2016/04/25 17:43:53 by rfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char		*ft_round(char *str, int size);
 int			size_forscient(double *i);
 char		*arg_forscient(char *buffer, int n);
 char		*arg_forscient_up(char *buffer, int n);
-char		*fill_point(char *buffer);
+char		*fill_point(char *buffer, int **tab);
 char		*ft_addzero(char *str, int size);
 void		ft_delete_zero(char *str);
 

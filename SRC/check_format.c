@@ -6,7 +6,7 @@
 /*   By: rfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/24 16:32:30 by rfernand          #+#    #+#             */
-/*   Updated: 2016/04/22 17:44:24 by rfernand         ###   ########.fr       */
+/*   Updated: 2016/04/25 18:27:38 by rfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,9 @@ int		**check_format(va_list *arg, const char *format, int *i)
 		if (check_type(tab, format[*i]))
 			*i = *i + 1;
 	}
-	if (tab[0][0] != '0' || (tab[2][0] < tab[1][0] && tab[2][0] != -1))
+	if (tab[0][0] != '0' || (tab[2][0] < tab[1][0] && tab[2][0] != -1 && 
+				tab[4][0] != 11 && tab[4][0] != 12 && tab[4][0] != 15 &&
+				tab[4][0] != 0))
 		tab[0][3] = ' ';
 	if (!tab[4][0] && format[*i])
 		tab[4][1] = format[(*i)++];

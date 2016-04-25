@@ -6,7 +6,7 @@
 /*   By: rfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/14 18:31:41 by rfernand          #+#    #+#             */
-/*   Updated: 2016/04/21 16:30:42 by rfernand         ###   ########.fr       */
+/*   Updated: 2016/04/25 19:03:22 by rfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,12 @@ char		*get_point(va_list *arg, char *buffer, int **tab)
 {
 	long		i;
 
+	if (tab[2][0] == -1)
+		tab[2][0] = 1;
 	i = va_arg((*arg), long);
 	buffer = ft_convertbase(i, 16);
-	buffer = fill_point(buffer);
 	buffer = ft_addzero(buffer, tab[2][0]);
+	buffer = fill_point(buffer, tab);
 	return (buffer);
 }
 

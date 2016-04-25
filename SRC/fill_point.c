@@ -6,13 +6,13 @@
 /*   By: rfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/14 18:32:00 by rfernand          #+#    #+#             */
-/*   Updated: 2016/04/21 16:58:27 by rfernand         ###   ########.fr       */
+/*   Updated: 2016/04/25 19:03:32 by rfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libftprintf/libftprintf.h"
 
-char		*fill_point(char *buffer)
+char		*fill_point(char *buffer, int **tab)
 {
 	char	tmp[15];
 	int		i;
@@ -23,13 +23,14 @@ char		*fill_point(char *buffer)
 	i = ft_strlen(buffer);
 	tmp[0] = '0';
 	tmp[1] = 'x';
-	if (i++ < 12 && buffer[0] != '0')
+/*	if (i++ < 12 && buffer[0] != '0')
 	{
 		tmp[2] = '7';
 		while (i++ < 12)
 			tmp[n++] = 'f';
 	}
-	ft_strcat(tmp, buffer);
+*/	if (buffer[0] != '0' || tab[2][0] >= 1)
+		ft_strcat(tmp, buffer);
 	free(buffer);
 	buffer = (char *)malloc(15 * sizeof(char));
 	ft_bzero(buffer, 15);

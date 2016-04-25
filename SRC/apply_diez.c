@@ -6,7 +6,7 @@
 /*   By: rfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/20 14:30:16 by rfernand          #+#    #+#             */
-/*   Updated: 2016/04/21 16:06:56 by rfernand         ###   ########.fr       */
+/*   Updated: 2016/04/25 19:08:18 by rfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 char		*apply_diez_octal(char *tmp, char *buffer, int **tab)
 {
+	if (buffer[0] == '0')
+		return (buffer);
 	tmp[0] = '0';
 	return(buffer);
 }
