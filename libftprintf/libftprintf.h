@@ -6,7 +6,7 @@
 /*   By: rfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/20 18:26:16 by rfernand          #+#    #+#             */
-/*   Updated: 2016/04/25 17:43:53 by rfernand         ###   ########.fr       */
+/*   Updated: 2016/04/26 16:10:28 by rfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ char		*print_arg(int **tab, va_list *arg, char *str, const char *format);
 int			**check_format(va_list *arg, const char *format, int *i);
 
 void		check_flags(int *tab, const char *format, int *i);
-void		check_len(va_list *arg, int *tab, const char *format, int *i);
-int			check_accuracy(va_list *arg, int *tab, const char *format, int *i);
+void		check_len(va_list *arg, int **tab, const char *format, int *i);
+int			check_accuracy(va_list *arg, int **tab, const char *format, int *i);
 void		check_modif(int *tab, const char *format, int *i);
 int			check_type(int **tab, char c);
 

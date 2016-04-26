@@ -6,7 +6,7 @@
 /*   By: rfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/22 15:39:40 by rfernand          #+#    #+#             */
-/*   Updated: 2016/04/25 18:54:11 by rfernand         ###   ########.fr       */
+/*   Updated: 2016/04/26 18:04:47 by rfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,9 +80,9 @@ int		ft_printf(const char * format, ...)
 
 	c = 130;
 	i = 1000000.7776678;
-	n = ft_printf("%5p", 0);
+	n = ft_printf("%ll#x", 9223372036854775807);
 	printf("%d\n", n);
-	n = printf("%5p", 0);
+	n = printf("%ll#x", 9223372036854775807);
 	printf("%d\n", n);
 	return (0);
 }*/

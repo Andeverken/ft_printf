@@ -6,7 +6,7 @@
 /*   By: rfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/24 16:32:30 by rfernand          #+#    #+#             */
-/*   Updated: 2016/04/25 18:27:38 by rfernand         ###   ########.fr       */
+/*   Updated: 2016/04/26 18:03:48 by rfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,12 @@ int		check(char c)
 	return (0);
 }
 
+int		is_modif(char c)
+{
+	if (c == 'h' || c == 'j' || c == 'l' || c == 'z')
+		return (1);
+	return (0);
+}
 int		**check_format(va_list *arg, const char *format, int *i)
 {
 	int **tab;
@@ -56,10 +62,11 @@ int		**check_format(va_list *arg, const char *format, int *i)
 	while (!tab[4][0] && format[*i] && check(format[*i]))
 	{
 		check_flags(tab[0], format, i);
-		check_len(arg, tab[1], format, i);
+		check_len(arg, tab, format, i);
 		if (!n || format[*i] == '.')
-			n = check_accuracy(arg, tab[2], format, i);
-		check_modif(tab[3], format, i);
+			n = check_accuracy(arg, tab, format, i);
+		if (is_modif(format[*i]))
+			check_modif(tab[3], format, i);
 		if (check_type(tab, format[*i]))
 			*i = *i + 1;
 	}

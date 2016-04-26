@@ -6,7 +6,7 @@
 /*   By: rfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/20 14:30:16 by rfernand          #+#    #+#             */
-/*   Updated: 2016/04/25 19:08:18 by rfernand         ###   ########.fr       */
+/*   Updated: 2016/04/26 17:33:09 by rfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,35 @@ char		*apply_diez_octal(char *tmp, char *buffer, int **tab)
 
 char		*apply_diez_hexa_low(char *tmp, char *buffer, int **tab)
 {
-	if (buffer[0] == '0' || !tab[2][0])
-		return (buffer);
+	int i;
+
+	i = 0;
+	while (buffer[i] == '0')
+		i++;
+//	if (buffer[0] == '0' || !tab[2][0])
+//		return (buffer);
+	if (i != 1 && buffer[i] != '\0' && tab[2][0] != 0)
+	{
 	tmp[0] = '0';
 	tmp[1] = 'x';
+	}
 	return(buffer);
 }
 
 char		*apply_diez_hexa_up(char *tmp, char *buffer, int **tab)
 {
-	if (buffer[0] == '0' || !tab[2][0])
-		return (buffer);
+	int i;
+
+	i = 0;
+	while (buffer[i] == '0')
+		i++;
+//	if (buffer[0] == '0' || !tab[2][0])
+//		return (buffer);
+	if (i != 1 && buffer[i] != '\0' && tab[2][0] != 0)
+	{
 	tmp[0] = '0';
 	tmp[1] = 'X';
+	}
 	return(buffer);
 }
 
