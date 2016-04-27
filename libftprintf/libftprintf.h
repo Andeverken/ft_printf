@@ -6,7 +6,7 @@
 /*   By: rfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/20 18:26:16 by rfernand          #+#    #+#             */
-/*   Updated: 2016/04/26 16:10:28 by rfernand         ###   ########.fr       */
+/*   Updated: 2016/04/27 18:09:58 by rfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,13 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdarg.h>
+
+typedef struct		s_list
+{
+	char			*str;
+	int				i;
+	wchar_t			*unicode;
+}					t_list;
 
 void		*ft_memmove(void *dst, const void *src, size_t len);
 void		*ft_memcpy(void *dst, const void *src, size_t n);
@@ -39,13 +46,16 @@ int			ft_toupper(int c);
 char		*ft_dtoa(long double i, int size);
 char		*ft_round(char *str, int size);
 int			size_forscient(double *i);
+int			size_forscient_long(long double *i);
 char		*arg_forscient(char *buffer, int n);
 char		*arg_forscient_up(char *buffer, int n);
 char		*fill_point(char *buffer, int **tab);
 char		*ft_addzero(char *str, int size);
 void		ft_delete_zero(char *str);
+int			ft_putprintf(t_list *elem, int **tab);
 
-char		*print_arg(int **tab, va_list *arg, char *str, const char *format);
+char		*print_arg(int **tab, va_list *arg, t_list *elem,
+			const char *format);
 int			**check_format(va_list *arg, const char *format, int *i);
 
 void		check_flags(int *tab, const char *format, int *i);

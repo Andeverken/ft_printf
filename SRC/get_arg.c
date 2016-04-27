@@ -6,7 +6,7 @@
 /*   By: rfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/01 19:25:48 by rfernand          #+#    #+#             */
-/*   Updated: 2016/04/22 18:42:35 by rfernand         ###   ########.fr       */
+/*   Updated: 2016/04/27 18:25:59 by rfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,18 @@ char	*get_int(va_list *arg, char *buffer, int **tab)
 char	*get_char(va_list *arg, char *buffer, int **tab)
 {
 	char c;
+	wchar_t i;
 
-	c = va_arg((*arg), int);
-	buffer = (char *)(malloc(2 * sizeof(char)));
-	if (c != 0)
-		buffer[0] = c;
+	if (tab[3][0] == 3)
+		i = va_arg((*arg), wchar_t);
 	else
-		buffer[0] = 129;
-	buffer[1] = '\0';
+	{
+		c = va_arg((*arg), int);
+		i = c;
+	}
+	elem->unicode = (wchar_t *) malloc(2 * sizeof(wchar_t));
+	elem->unicode[0] = i;
+	elem->unicode[1] = '\0';
 	return (buffer);
 }
 

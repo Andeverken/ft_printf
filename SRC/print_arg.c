@@ -6,41 +6,57 @@
 /*   By: rfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/25 16:55:42 by rfernand          #+#    #+#             */
-/*   Updated: 2016/04/26 18:04:23 by rfernand         ###   ########.fr       */
+/*   Updated: 2016/04/27 18:07:15 by rfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libftprintf/libftprintf.h"
 
-char		*print_arg(int **tab, va_list *arg, char *str, const char *format)
+void	free_tab(int **tab)
 {
-	char *buffer;
-	char *buf;
-	int n;
-	char	*(*types[17])(va_list *arg, char *buffer, int **tab);
-
-	n = ft_strlen(str);
-	buffer = NULL;
-	buf = (char *)malloc((n + 1) * sizeof(char));
-	ft_strcpy(buf, str);
-	init_pt_tab(types);
-	buffer = types[tab[4][0]](arg, buffer, tab);
-	free (str);
-	buffer = ft_apply_flag(tab, buffer);
-	str = (char *) malloc((n + ft_strlen(buffer) + ft_strlen(format) + 1) *
-			sizeof (char));
-	ft_bzero(str, n + ft_strlen(buffer) + ft_strlen(format) + 1);
-	ft_strcpy(str, buf);
-	free(buf);
-	ft_strcat(str, buffer);
-	free(buffer);
 	free(tab[0]);
 	free(tab[1]);
 	free(tab[2]);
 	free(tab[3]);
 	free(tab[4]);
 	free(tab);
-	return (str);
+}
+
+int			verif_type(int **tab)
+{
+	if (tab[4][0] == 11 || tab[4][0] == 16 || (tab[4][0] == 12 
+				&& tab[3][0] == 3))
+		return (0);
+	return (1);
+}
+
+char		*print_arg(int **tab, va_list *arg, t_list *elem, const char *format)
+{
+	char *buffer;
+	char *buf;
+	int n;
+	char	*(*types[17])(va_list *arg, char *buffer, int **tab);
+
+	n = ft_strlen(elem->str);
+	buf = (char *)malloc((n + 1) * sizeof(char));
+	ft_strcpy(buf, elem->str);
+	init_pt_tab(types);
+	buffer = types[tab[4][0]](arg, buffer, tab);
+	free (elem->str);
+	if (verif_type(tab))
+		buffer = ft_apply_flag(tab, buffer);
+/*	else
+		elem->unicode = ft_apply_flag_uni(tab, elem);
+*/	elem->str = (char *) malloc((n + ft_strlen(buffer) + ft_strlen(format) + 1) 
+		* sizeof (char));
+	ft_bzero(elem->str, n + ft_strlen(buffer) + ft_strlen(format) + 1);
+	ft_strcpy(elem->str, buf);
+	free(buf);
+	ft_strcat(elem->str, buffer);
+	free(buffer);
+	ft_putprintf(elem, tab);
+	free_tab(tab);
+	return (elem->str);
 }
 
 char		*ft_add_empty(char *tmp, int **tab, char *buffer)
