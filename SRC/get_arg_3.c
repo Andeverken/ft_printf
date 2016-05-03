@@ -6,13 +6,13 @@
 /*   By: rfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/14 18:31:41 by rfernand          #+#    #+#             */
-/*   Updated: 2016/04/27 17:35:03 by rfernand         ###   ########.fr       */
+/*   Updated: 2016/05/02 14:14:08 by rfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libftprintf/libftprintf.h"
 
-char		*get_point(va_list *arg, char *buffer, int **tab)
+char		*get_point(va_list *arg, char *buffer, int **tab, t_list *elem)
 {
 	long		i;
 
@@ -25,7 +25,7 @@ char		*get_point(va_list *arg, char *buffer, int **tab)
 	return (buffer);
 }
 
-char		*get_shorter(va_list *arg, char *buffer, int **tab)
+char		*get_shorter(va_list *arg, char *buffer, int **tab, t_list *elem)
 {
 	double	i;
 	int		n;
@@ -51,16 +51,16 @@ char		*get_shorter(va_list *arg, char *buffer, int **tab)
 	buffer = ft_dtoa(i, tab[2][0] - 1 - n);
 	buffer = ft_round(buffer, ft_strlen(buffer) - 1);
 	buffer = ft_addzero(buffer, tab[2][0]);
-	return(buffer);
+	return (buffer);
 }
 
-char		*get_shorter_up(va_list *arg, char *buffer, int **tab)
+char		*get_shorter_up(va_list *arg, char *buffer, int **tab, t_list *elem)
 {
 	int		n;
 
 	n = 0;
-	buffer = get_shorter(arg, buffer, tab);
-	while(buffer[n])
+	buffer = get_shorter(arg, buffer, tab, elem);
+	while (buffer[n])
 	{
 		buffer[n] = ft_toupper(buffer[n]);
 		n++;
@@ -69,7 +69,7 @@ char		*get_shorter_up(va_list *arg, char *buffer, int **tab)
 	return (buffer);
 }
 
-char		*get_binary(va_list *arg, char *buffer, int **tab)
+char		*get_binary(va_list *arg, char *buffer, int **tab, t_list *elem)
 {
 	int		i;
 
@@ -79,9 +79,9 @@ char		*get_binary(va_list *arg, char *buffer, int **tab)
 	return (buffer);
 }
 
-char		*get_percent(va_list *arg, char *buffer, int **tab)
+char		*get_percent(va_list *arg, char *buffer, int **tab, t_list *elem)
 {
-	buffer = (char *) malloc(2 * sizeof(char));
+	buffer = (char *)malloc(2 * sizeof(char));
 	buffer[0] = '%';
 	buffer[1] = '\0';
 	return (buffer);

@@ -6,16 +6,28 @@
 /*   By: rfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/24 19:31:16 by rfernand          #+#    #+#             */
-/*   Updated: 2016/04/26 16:32:12 by rfernand         ###   ########.fr       */
+/*   Updated: 2016/05/02 14:32:12 by rfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libftprintf/libftprintf.h"
 
-int		check_accuracy(va_list *arg, int **tab, const char *format, int *i)
+static void	get_accurary(int **tab, const char *format, int *i)
 {
-	char str[50];
-	int n;
+	int		n;
+	char	str[50];
+
+	n = 0;
+	while (format[*i] >= '0' && format[*i] <= '9')
+		str[n++] = format[(*i)++];
+	str[n] = 'e';
+	tab[2][0] = ft_atoi(str);
+}
+
+int			check_accuracy(va_list *arg, int **tab, const char *format, int *i)
+{
+	char	str[50];
+	int		n;
 
 	n = 0;
 	if (format[*i] == '.')
@@ -31,12 +43,7 @@ int		check_accuracy(va_list *arg, int **tab, const char *format, int *i)
 			(*i)++;
 		}
 		else if (format[*i] >= '0' && format[*i] <= '9')
-		{
-			while (format[*i] >= '0' && format[*i] <= '9')
-				str[n++] = format[(*i)++];
-			str[n] = 'e';
-			tab[2][0] = ft_atoi(str);
-		}
+			get_accurary(tab, format, i);
 		return (1);
 	}
 	tab[2][0] = -1;

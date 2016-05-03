@@ -6,7 +6,7 @@
 /*   By: rfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/26 13:58:14 by rfernand          #+#    #+#             */
-/*   Updated: 2016/04/12 18:49:23 by rfernand         ###   ########.fr       */
+/*   Updated: 2016/05/02 14:46:26 by rfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static char	*negatifvalue(long n)
 char		*ft_itoa(long n)
 {
 	char	*str;
-	long		i;
+	long	i;
 	int		u;
 	int		h;
 

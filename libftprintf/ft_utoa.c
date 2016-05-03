@@ -6,7 +6,7 @@
 /*   By: rfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/01 19:48:37 by rfernand          #+#    #+#             */
-/*   Updated: 2016/04/01 19:53:24 by rfernand         ###   ########.fr       */
+/*   Updated: 2016/05/02 14:44:47 by rfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ static int	ft_lennb(unsigned int n)
 
 char		*ft_utoa(unsigned int n)
 {
-	char	*str;
+	char				*str;
 	unsigned int		i;
-	int		u;
-	int		h;
+	int					u;
+	int					h;
 
 	i = n;
 	u = ft_lennb(n);

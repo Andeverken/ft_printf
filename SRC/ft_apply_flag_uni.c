@@ -1,42 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_addzero.c                                       :+:      :+:    :+:   */
+/*   ft_apply_flag_uni.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/16 14:53:50 by rfernand          #+#    #+#             */
-/*   Updated: 2016/05/02 14:18:05 by rfernand         ###   ########.fr       */
+/*   Created: 2016/04/29 15:47:12 by rfernand          #+#    #+#             */
+/*   Updated: 2016/05/02 14:17:40 by rfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libftprintf/libftprintf.h"
 
-char		*ft_addzero(char *str, int size)
+char		*ft_apply_flag_uni(int **tab, t_list *elem, char *buffer)
 {
 	int		i;
 	int		n;
-	char	buf[size + 1];
+	char	*tmp;
 
-	ft_bzero(buf, size + 1);
+	i = 0;
 	n = 0;
-	if (str[0] == '0' && size == 0)
-		str[0] = '\0';
-	else if ((i = ft_strlen(str)) <= size)
+	tmp = (char *)malloc(1 * sizeof(char));
+	tmp[0] = '\0';
+	free(buffer);
+	while (elem->unicode[i])
 	{
-		if (str[0] == '-')
-		{
-			buf[n++] = '-';
-			ft_memmove(str, str + 1, ft_strlen(str));
-			i--;
-		}
-		while (i++ < size)
-			buf[n++] = '0';
-		ft_strcat(buf, str);
-		free(str);
-		str = (char*)malloc((size + 2) * sizeof(char));
-		ft_bzero(str, size + 1);
-		ft_strcpy(str, buf);
+		n += ft_size_octet(elem->unicode[i]);
+		i++;
 	}
-	return (str);
+	if (n < tab[1][0])
+	{
+		free(tmp);
+		i = 0;
+		tmp = (char *)malloc((tab[1][0] - n + 1) * sizeof(char));
+		ft_bzero(tmp, tab[1][0] - n + 1);
+		while (tab[1][0] > n++)
+			tmp[i++] = tab[0][3];
+	}
+	return (tmp);
 }

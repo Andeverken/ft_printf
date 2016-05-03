@@ -6,7 +6,7 @@
 /*   By: rfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/24 18:45:34 by rfernand          #+#    #+#             */
-/*   Updated: 2016/04/20 17:50:21 by rfernand         ###   ########.fr       */
+/*   Updated: 2016/05/02 14:32:41 by rfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	check_flags(int *tab, const char *format, int *i)
 			tab[0] = '-';
 		if (format[*i] == '+' && tab[1] != '+')
 			tab[1] = '+';
-		if (format[*i] == ' ' && tab[1] != ' '  && tab[1] != '+')
-			tab[1] = ' ' ;
+		if (format[*i] == ' ' && tab[1] != ' ' && tab[1] != '+')
+			tab[1] = ' ';
 		if (format[*i] == '#' && tab[2] != '#')
 			tab[2] = '#';
 		if (format[*i] == '0' && tab[0] != '0' && tab[0] != '-')

@@ -6,7 +6,7 @@
 /*   By: rfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/14 18:32:10 by rfernand          #+#    #+#             */
-/*   Updated: 2016/04/27 17:35:00 by rfernand         ###   ########.fr       */
+/*   Updated: 2016/05/02 14:22:28 by rfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int			size_forscient_long(long double *i)
 			n--;
 		}
 	(*i) *= s;
-	return(n);
+	return (n);
 }
 
 int			size_forscient(double *i)
@@ -65,13 +65,13 @@ int			size_forscient(double *i)
 			n--;
 		}
 	(*i) *= s;
-	return(n);
+	return (n);
 }
 
 char		*arg_forscient_up(char *buffer, int n)
 {
 	int		i;
-	char tmp[ft_strlen(buffer) + 5];
+	char	tmp[ft_strlen(buffer) + 5];
 
 	ft_bzero(tmp, ft_strlen(buffer) + 5);
 	ft_strcpy(tmp, buffer);
@@ -97,7 +97,7 @@ char		*arg_forscient_up(char *buffer, int n)
 char		*arg_forscient(char *buffer, int n)
 {
 	int		i;
-	char tmp[ft_strlen(buffer) + 5];
+	char	tmp[ft_strlen(buffer) + 5];
 
 	ft_bzero(tmp, ft_strlen(buffer) + 5);
 	ft_strcpy(tmp, buffer);

@@ -6,13 +6,14 @@
 /*   By: rfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/02 16:08:04 by rfernand          #+#    #+#             */
-/*   Updated: 2016/04/22 18:26:58 by rfernand         ###   ########.fr       */
+/*   Updated: 2016/05/02 14:05:39 by rfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libftprintf/libftprintf.h"
 
-void	init_pt_tab(char *(**types)(va_list *arg, char *buffer, int **tab))
+void	init_pt_tab(char *(**types)(va_list *arg, char *buffer, int **tab,
+			t_list *elem))
 {
 	types[0] = &get_nothing;
 	types[1] = &get_int;
@@ -45,8 +46,8 @@ void	init_signed_tab(char *(**modif_signed)
 	modif_signed[6] = &get_size_int;
 }
 
-void	init_unsigned_tab(char *(**modif_unsigned)
-		(va_list *arg, char *buffer, int **tab, int base))
+void	init_unsigned_tab(char *(**modif_unsigned)(va_list *arg, char *buffer,
+			int **tab, int base))
 {
 	modif_unsigned[0] = &get_normal_unsigned;
 	modif_unsigned[1] = &get_short_short_unsigned;
@@ -56,6 +57,7 @@ void	init_unsigned_tab(char *(**modif_unsigned)
 	modif_unsigned[5] = &get_unsigned_max;
 	modif_unsigned[6] = &get_size_unsigned;
 }
+
 void	init_diez_tab(char *(**diez)(char *tmp, char *buffer, int **tab))
 {
 	diez[2] = &apply_diez_octal;

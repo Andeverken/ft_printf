@@ -6,15 +6,14 @@
 /*   By: rfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/04 16:35:36 by rfernand          #+#    #+#             */
-/*   Updated: 2016/04/27 17:44:29 by rfernand         ###   ########.fr       */
+/*   Updated: 2016/05/02 14:08:02 by rfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libftprintf/libftprintf.h"
 
-char	*get_hexa_low(va_list *arg, char *buffer, int **tab)
+char	*get_hexa_low(va_list *arg, char *buffer, int **tab, t_list *elem)
 {
-	unsigned int i;
 	char *(*modif_unsigned[7])(va_list *arg, char *buffer, int **tab, int base);
 
 	init_unsigned_tab(modif_unsigned);
@@ -25,10 +24,10 @@ char	*get_hexa_low(va_list *arg, char *buffer, int **tab)
 	return (buffer);
 }
 
-char	*get_hexa_up(va_list *arg, char *buffer, int **tab)
+char	*get_hexa_up(va_list *arg, char *buffer, int **tab, t_list *elem)
 {
-	int i;
-	char *(*modif_unsigned[7])(va_list *arg, char *buffer, int **tab, int base);
+	int		i;
+	char	*(*modif_unsigned[7])(va_list *arg, char *buf, int **tab, int base);
 
 	init_unsigned_tab(modif_unsigned);
 	if (tab[2][0] == -1)
@@ -44,10 +43,10 @@ char	*get_hexa_up(va_list *arg, char *buffer, int **tab)
 	return (buffer);
 }
 
-char	*get_double(va_list *arg, char *buffer, int **tab)
+char	*get_double(va_list *arg, char *buffer, int **tab, t_list *elem)
 {
-	double i;
-	long double n;
+	double		i;
+	long double	n;
 
 	if (tab[2][0] == -1)
 		tab[2][0] = 6;
@@ -66,11 +65,11 @@ char	*get_double(va_list *arg, char *buffer, int **tab)
 	return (buffer);
 }
 
-char	*get_scient(va_list *arg, char *buffer, int **tab)
+char	*get_scient(va_list *arg, char *buffer, int **tab, t_list *elem)
 {
-	double i;
-	long double y;
-	int		n;
+	double		i;
+	long double	y;
+	int			n;
 
 	if (tab[2][0] == -1)
 		tab[2][0] = 6;
@@ -92,11 +91,11 @@ char	*get_scient(va_list *arg, char *buffer, int **tab)
 	return (buffer);
 }
 
-char	*get_scient_up(va_list *arg, char *buffer, int **tab)
+char	*get_scient_up(va_list *arg, char *buffer, int **tab, t_list *elem)
 {
-	double	i;
-	long double y;
-	int		n;
+	double		i;
+	long double	y;
+	int			n;
 
 	n = 0;
 	if (tab[2][0] == -1)

@@ -6,7 +6,7 @@
 #    By: rfernand <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/04/16 15:52:11 by rfernand          #+#    #+#              #
-#    Updated: 2016/04/22 17:24:45 by rfernand         ###   ########.fr        #
+#    Updated: 2016/04/29 16:07:17 by rfernand         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,9 @@ SRC_NAME = apply_diez.c \
 		   init_pt_tab.c \
 		   print_arg.c \
 		   get_nothing.c \
+		   modif_unicode.c \
+		   apply_accuracy_wchar.c \
+		   ft_apply_flag_uni.c
 
 LIBFT_NAME = ft_atoi.c \
 			 ft_bzero.c \
