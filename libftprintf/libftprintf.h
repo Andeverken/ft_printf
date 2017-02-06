@@ -6,7 +6,7 @@
 /*   By: rfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/20 18:26:16 by rfernand          #+#    #+#             */
-/*   Updated: 2016/05/02 14:43:41 by rfernand         ###   ########.fr       */
+/*   Updated: 2016/05/16 14:59:26 by rfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 # define LIBFTPRINTF_H
 
-# include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdarg.h>

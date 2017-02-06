@@ -6,7 +6,7 @@
 /*   By: rfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/02 16:08:04 by rfernand          #+#    #+#             */
-/*   Updated: 2016/05/02 14:05:39 by rfernand         ###   ########.fr       */
+/*   Updated: 2016/05/31 11:09:41 by rfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,5 @@ void	init_diez_tab(char *(**diez)(char *tmp, char *buffer, int **tab))
 	diez[8] = &apply_diez_scient_low;
 	diez[9] = &apply_diez_shorter_low;
 	diez[10] = &apply_diez_shorter_low;
-	diez[15] = &apply_diez_binary;
+	diez[14] = &apply_diez_binary;
 }

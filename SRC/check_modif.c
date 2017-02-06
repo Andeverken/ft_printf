@@ -6,11 +6,9 @@
 /*   By: rfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/25 15:55:18 by rfernand          #+#    #+#             */
-/*   Updated: 2016/04/27 17:48:52 by rfernand         ###   ########.fr       */
+/*   Updated: 2016/05/16 14:58:34 by rfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdio.h>
 
 void	check_modif(int *tab, const char *format, int *i)
 {

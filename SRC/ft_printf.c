@@ -6,14 +6,11 @@
 /*   By: rfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/22 15:39:40 by rfernand          #+#    #+#             */
-/*   Updated: 2016/05/02 14:12:04 by rfernand         ###   ########.fr       */
+/*   Updated: 2016/05/16 14:58:26 by rfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libftprintf/libftprintf.h"
-#include <string.h>
-#include <locale.h>
-#include <limits.h>
 
 void	ft_putunicode(t_list *elem, int **tab)
 {
@@ -70,14 +67,6 @@ int		ft_putprintf(t_list *elem, int **tab)
 	ft_putunicode(elem, tab);
 	return (a);
 }
-
-/*char	*recup_arg(va_list *arg, t_list *elem, const char *format, int *i)
-{
-	if ((elem->str = print_arg(check_format(arg, format, i), arg, elem, format))
-		== NULL)
-		return (NULL);
-	return (elem->str);
-}*/
 
 t_list	*create_struct(const char *format)
 {
@@ -137,19 +126,3 @@ int		ft_printf(const char *format, ...)
 	i = free_struct(elem);
 	return (i);
 }
-
-/*int		main(void)
-{
-	int i;
-	char c;
-	int n;
-
-	i = 2000;
-	setlocale(LC_ALL, "");
-	c = 130;
-	n = ft_printf("{%05.S}", L"42 c est cool");
-	printf("%d\n", n);
-	n = printf("{%05.S}", L"42 c est cool");
-	printf("%d\n", n);
-	return (0);
-}*/
